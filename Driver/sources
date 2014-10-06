@@ -1,0 +1,12 @@
+TARGETNAME = KStack
+TARGETTYPE = DRIVER
+TARGETLIBS = $(DDK_LIB_PATH)\ntoskrnl.lib # $(DDK_LIB_PATH) is a macro that expands to the WDK lib directory
+
+#Debug / checked build
+!IF (("$(DDKBUILDENV)" == "chk") || ("$(DDKBUILDENV)" == "CHK"))
+TARGETPATH = ..\Debug
+!ELSE
+TARGETPATH = ..\Release
+!ENDIF
+
+SOURCES = KStack.c
